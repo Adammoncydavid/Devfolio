@@ -36,43 +36,6 @@ Contributions are welcome, and they are greatly appreciated! Every little bit he
 
 Please star the repo and feel free to make pull requests
 
-## Not sure where to start?  <a id="wheretostart"></a>
-
-#### Step 1:
-
-Download or clone this repository by using the command given below:
-
-```
-git clone https://github.com/BorisEdison/Honey-Badger.git
-```
-
-#### Step 2:
-Make sure you have nodejs 18.0.0 or higher and npm 8.6.0 or higher installed. Install dependencies with:
-
-```
-npm install
-```
-
-#### Step 3:
-Once it's done start up a local server with:
-
-```
-npm run dev
-```
-
-Runs the app in the development mode
-Open http://localhost:8000 to view it in the browser. The page will reload if you make edits
-
-#### Step 4:
-
-To create a production build:
-
-```
-npm run prod
-```
-
-## Deployment  <a id="deployement"></a>
-
 ## Show your support
 
 Give a ⭐ if you like this website!
