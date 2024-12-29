@@ -1,8 +1,14 @@
 // preloader 
-setTimeout(function(){
-  $('.preloader').addClass('d-none');
-  $('.main-content').removeClass('d-none');
-}, 2500);
+window.addEventListener('load', () => {
+  hidePreloader() 
+})
+
+function hidePreloader() {
+  setTimeout(function(){
+    $('.preloader').addClass('d-none');
+    $('.main-content').removeClass('d-none');
+  }, 2500);
+}
 
 // navbar
 var hamburger = document.querySelector(".hamburger");

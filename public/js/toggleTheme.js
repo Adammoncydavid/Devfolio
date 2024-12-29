@@ -20,8 +20,8 @@ const change_theme = () => {
     // toggle.setAttribute("aria-label", "Toggle Dark Theme");
   } else {
     toggle.childNodes[1].setAttribute("data-icon", "ri:moon-fill");
-    root.style.setProperty('--clr-accent-300', '#E3FDFD');
-    root.style.setProperty('--clr-accent-100', '#ffffff');
+    root.style.setProperty('--clr-accent-300', '#D9FCFC');
+    root.style.setProperty('--clr-accent-100', '#ECFCFD');
     root.style.setProperty('--clr-accent-200', '#EEFEFE');
     root.style.setProperty('--clr-accent-400', '#CBF1F5');
     root.style.setProperty('--clr-heading', '#212529');
