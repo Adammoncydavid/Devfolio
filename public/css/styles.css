@@ -4,6 +4,10 @@ body {
 	background-color: var(--clr-accent-300);
 }
 
+a {
+	text-decoration: none;
+}
+
 .section {
 	padding-top: 10vh;
 	padding-bottom: 10vh;

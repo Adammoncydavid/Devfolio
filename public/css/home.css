@@ -34,8 +34,16 @@
 
 #home .home-info {
 	font-family: Continent;
-	font-size: var(--fs-400);
+	font-size: var(--fs-350);
 	color: var(--clr-accent-600);
+}
+
+.pandevs-link {
+	text-decoration: none;
+	color: var(--clr-accent-600);
+}
+.pandevs-link:hover {
+	color: var(--clr-accent-800);
 }
 
 #home .main-img {
@@ -101,7 +109,9 @@
 	#home .home-info {
 		font-size: var(--fs-250);
 	}
-
+	#home .home-info {
+		font-size: var(--fs-250);
+	}
 	#home .inner-row {
 		height: 55vh;
 	}
@@ -123,7 +133,11 @@
 	#home .side-img {
 		max-width: 90px !important;
 	}
-
+	#home .home-info {
+		font-size: var(--fs-200);
+		width: 100%;
+		word-wrap: break-word;
+	}
 	#home .main-img {
 		max-width: 250px !important;
 	}
