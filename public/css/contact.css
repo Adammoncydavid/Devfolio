@@ -1,10 +1,3 @@
-#contact {
-  background-color: var(--clr-accent-100);
-  background-image: url("/content/map-image.webp");
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
 .contact-row {
   padding-top: 88px;
   padding-bottom: 88px;
