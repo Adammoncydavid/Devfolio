@@ -14,29 +14,32 @@
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 
     <style>
-        /* --- HIGH-CONTRAST LIGHT MODE STYLING --- */
+        /* --- HIGH-CONTRAST PREMIUM STYLING --- */
         :root {
-            --primary-light: #f8f8f8; /* Off-White Background */
-            --secondary-light: #ffffff; /* Card/Section Background (Pure White) */
-            --text-dark: #333333; /* Main Text Color */
-            --text-muted: #6c757d;
+            --primary-dark: #111111; /* Soft Charcoal Background (Changed from #080808) */
+            --secondary-dark: #161616; /* Card/Section Background */
+            --text-light: #e0e0e0;
+            --text-muted: #888888;
             --accent-yellow: #FFB900; /* High-Contrast Accent */
-            --border-color: #e9ecef; /* Light Border */
-            --shadow-color: rgba(0, 0, 0, 0.1);
+            --border-color: #222222;
         }
 
         body {
-            /* Changed to light mode colors */
-            background-color: var(--primary-light);
-            color: var(--text-dark);
+            background-color: var(--primary-dark);
+            color: var(--text-light);
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            
+            /* --- SUBTLE TEXTURE EFFECT (like adhamdannaway.com) --- */
+            /* Uses a tiny, repeating black/white dot texture for grain */
+            background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAADCAYAAABWwJLAAAAARklEQVQIWNXIwRGAQAwFwJ82u4J5gJ3g');
+            background-repeat: repeat;
         }
 
         h1, h2, h3, h4, h5, h6 {
-            color: var(--text-dark);
+            color: var(--text-light);
             font-weight: 700;
         }
 
@@ -44,7 +47,7 @@
         .section-heading {
             font-size: 2.8rem;
             font-weight: 800;
-            color: var(--text-dark);
+            color: var(--text-light);
             margin-bottom: 60px;
             position: relative;
             padding-bottom: 15px;
@@ -67,108 +70,119 @@
 
         /* --- Navbar --- */
         .navbar {
-            background-color: var(--secondary-light) !important;
+            background-color: var(--secondary-dark) !important;
             border-bottom: 1px solid var(--border-color);
-            box-shadow: 0 2px 10px var(--shadow-color);
         }
         .nav-link {
-            color: var(--text-dark) !important;
+            color: var(--text-light) !important;
             font-weight: 600;
             transition: color 0.3s ease;
         }
         .nav-link:hover {
             color: var(--accent-yellow) !important;
         }
-        .navbar-brand {
-            color: var(--text-dark) !important;
-        }
 
         /* --- Hero Section --- */
         #hero {
-            /* Reverting Hero to a contrasting dark color, as plain white-on-white looks flat */
-            background-color: #121212; 
-            color: #ffffff;
+            background-color: var(--primary-dark);
             padding: 150px 0 100px;
         }
         .hero-title {
-            color: #ffffff;
+            font-size: 4.5rem;
+            font-weight: 800;
+            letter-spacing: -2px;
         }
         .hero-subtitle {
-            color: var(--accent-yellow);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--text-muted);
         }
 
-        /* --- Card Styling (Main Content Sections) --- */
+        /* --- Card Styling --- */
         .card {
-            background-color: var(--secondary-light);
+            background-color: var(--secondary-dark);
             border: 1px solid var(--border-color);
             border-radius: 10px;
             transition: transform 0.3s ease;
-            box-shadow: 0 4px 10px var(--shadow-color);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 0 10px rgba(255, 185, 0, 0.2);
-        }
-        .card-text {
-             color: var(--text-dark); /* Ensure text stays dark on white background */
-        }
-        .card-title {
-            color: var(--accent-yellow);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 10px rgba(255, 185, 0, 0.2);
         }
 
         /* --- Experience/Detail Blocks --- */
         .detail-item {
-            background-color: var(--secondary-light);
+            background-color: var(--secondary-dark);
             border-left: 3px solid var(--accent-yellow);
             padding: 20px;
             border-radius: 6px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 5px var(--shadow-color);
         }
         .detail-item h5 {
             color: var(--accent-yellow);
+            font-weight: 700;
+            margin-bottom: 5px;
         }
         .detail-meta {
+            font-size: 0.9rem;
             color: var(--text-muted);
+            margin-bottom: 10px;
         }
         .detail-list li {
-            color: var(--text-dark);
+            color: var(--text-light);
+            list-style: none;
+            padding-left: 1.5em;
+            text-indent: -1.5em;
         }
         .detail-list li:before {
+            content: "→"; 
             color: var(--accent-yellow); 
+            margin-right: 0.5em;
         }
         
         /* --- Buttons --- */
         .btn-accent {
             background-color: var(--accent-yellow);
             border: none;
-            color: var(--text-dark); /* Changed text color to dark for contrast */
+            color: var(--primary-dark);
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-accent:hover {
+            background-color: #ffc83d;
+            transform: translateY(-2px);
         }
         .btn-outline-dark {
             border: 1px solid var(--text-muted);
-            color: var(--text-dark); /* Changed text color to dark for contrast */
+            color: var(--text-light);
         }
         .btn-outline-dark:hover {
             background-color: var(--text-muted);
-            color: var(--primary-light); /* Changed hover text to white */
+            color: var(--primary-dark);
         }
 
-        /* --- Skill Badges --- */
+        /* --- Skill Badges (Similar to before, but color adjusted) --- */
         .skill-badge {
-            background-color: var(--secondary-light);
-            color: var(--text-dark);
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 18px;
+            margin: 5px;
+            border-radius: 25px;
+            background-color: #1f1f1f;
+            color: var(--text-light);
+            font-weight: 600;
+            font-size: 0.9em;
             border: 1px solid var(--border-color);
+            transition: background-color 0.3s ease;
         }
         .skill-badge:hover {
-            background-color: #ededed;
+            background-color: #2b2b2b;
         }
-
-        /* --- Footer --- */
-        footer {
-            background-color: var(--secondary-light);
-            padding: 30px 0;
-            border-top: 1px solid var(--border-color);
-            box-shadow: 0 -2px 10px var(--shadow-color);
+        .skill-badge .iconify {
+            margin-right: 8px;
+            font-size: 1.2em;
+            color: var(--accent-yellow); /* Yellow icon highlight */
         }
     </style>
 </head>
@@ -196,7 +210,7 @@
         <header id="hero" class="text-center">
             <h1 class="hero-title" data-aos="fade-down" data-aos-duration="1000">Adam Moncy David</h1>
             <h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">B.Tech Student | <span class="text-accent">Computer Science & Engineering</span></h2>
-            <p class="lead hero-intro" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1200" style="color: #cccccc;">
+            <p class="lead hero-intro" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1200">
                 I'm an ambitious engineering student passionate about solving problems creatively, leveraging core technologies like Python and JavaScript to build impactful applications.
             </p>
         </header>
@@ -208,7 +222,7 @@
                     <div class="card p-5 h-100">
                         <h4 class="card-title text-start mb-4">My Story</h4>
                         <p class="card-text text-start">
-                            Hello, I'm Adam Moncy David, an ambitious engineering student focused on full-stack development and robust problem-solving. My passion lies in taking ideas from concept to deployment, using a combination of logical programming and responsive front-end design. My primary stack includes Python, JavaScript, and MySQL.
+                            Hello, I'm Adam Moncy David, an ambitious engineering student currently pursuing a <strong>B.Tech in Computer Science and Engineering</strong>. I'm always <strong>passionate about solving problems in my own way</strong>, finding creative and efficient technical solutions. My focus is on leveraging technologies like <strong>Python, JavaScript, and MySQL</strong> to build impactful applications. Let's connect and build something great!
                         </p>
                     </div>
                 </div>
@@ -313,6 +327,24 @@
             </div>
         </section>
 
+        <section id="skills" class="py-5 text-center">
+            <h3 class="section-heading mx-auto" data-aos="fade-down">My Skillset</h3>
+            <div class="row justify-content-center g-3">
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="100"><span class="skill-badge"><span class="iconify" data-icon="logos:python" data-width="20"></span> Python</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="150"><span class="skill-badge"><span class="iconify" data-icon="logos:javascript" data-width="20"></span> JavaScript</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="200"><span class="skill-badge"><span class="iconify" data-icon="logos:mysql" data-width="20"></span> MySQL</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="250"><span class="skill-badge"><span class="iconify" data-icon="vscode-icons:file-type-html" data-width="20"></span> HTML5</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="300"><span class="skill-badge"><span class="iconify" data-icon="vscode-icons:file-type-css" data-width="20"></span> CSS3</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="350"><span class="skill-badge"><span class="iconify" data-icon="logos:git-icon" data-width="20"></span> Git</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="400"><span class="skill-badge"><span class="iconify" data-icon="logos:github-icon" data-width="20"></span> GitHub</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="450"><span class="skill-badge"><span class="iconify" data-icon="vscode-icons:file-type-vscode" data-width="20"></span> VS Code</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="500"><span class="skill-badge"><span class="iconify" data-icon="carbon:ibm-cloud-pak-mcm" data-width="20"></span> Backend Dev</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="550"><span class="skill-badge"><span class="iconify" data-icon="material-symbols:design-services-outline" data-width="20"></span> Frontend Design</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="600"><span class="skill-badge"><span class="iconify" data-icon="ic:baseline-people" data-width="20"></span> Teamwork</span></div>
+            </div>
+        </section>
+
+
         <section id="certs" class="py-5 text-center">
             <h3 class="section-heading mx-auto" data-aos="fade-down">Certifications & Achievements</h3>
             <div class="row g-4 justify-content-center">
@@ -363,6 +395,20 @@
                     <div class="detail-item text-start">
                         <h5 class="mb-1">Skill Kerala Global Summit 2025</h5>
                         <p class="detail-meta">Participation</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="800">
+                    <div class="detail-item text-start">
+                        <h5 class="mb-1">IoT & Embedded System Certificate</h5>
+                        <p class="detail-meta">FAWSTECH Innovations</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="900">
+                    <div class="detail-item text-start">
+                        <h5 class="mb-1">App Development (Flutter) Certificate</h5>
+                        <p class="detail-meta">FAWSTECH Innovations</p>
                     </div>
                 </div>
 
