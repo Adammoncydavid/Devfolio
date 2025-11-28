@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adam Moncy David - CS&E Portfolio</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
+
+    <style>
+        /* --- General Styling & Variables --- */
+        :root {
+            --primary-dark: #0a0a0c; /* Very dark background */
+            --secondary-dark: #1a1a1e; /* Slightly lighter for cards/sections */
+            --text-light: #e0e0e0;
+            --accent-purple: #a967f6; /* Vibrant purple */
+            --accent-blue: #00bcd4; /* Vibrant cyan/blue */
+            --gradient-start: #1c0f3c; /* Dark purple for gradients */
+            --gradient-end: #0f1e3c; /* Dark blue for gradients */
+            --border-color: #333333;
+            --hover-color: #0d6efd; /* Bootstrap blue for general hovers */
+        }
+
+        body {
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden; /* Prevent horizontal scroll from AOS */
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-light);
+        }
+
+        .section-heading {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--accent-purple);
+            text-shadow: 0 0 10px rgba(169, 103, 246, 0.4);
+            margin-bottom: 60px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient_start);
+            border-radius: 5px;
+        }
+
+        /* --- Navbar Styling --- */
+        .navbar {
+            background-color: var(--secondary-dark) !important;
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-blue) !important;
+            text-shadow: 0 0 8px rgba(0, 188, 212, 0.4);
+        }
+        .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 600;
+            transition: color 0.3s ease, transform 0.2s ease;
+        }
+        .nav-link:hover {
+            color: var(--accent-purple) !important;
+            transform: translateY(-2px);
+        }
+        .navbar-toggler {
+            border-color: var(--accent-purple) !important;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28169, 103, 246, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+        }
+
+        /* --- Hero Section --- */
+        #hero {
+            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-end) 100%);
+            padding: 100px 0;
+            margin-bottom: 40px;
+            border-bottom-left-radius: 50% 20px;
+            border-bottom-right-radius: 50% 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/carbon-fibre.png') repeat; /* Subtle texture */
+            opacity: 0.1;
+            pointer-events: none;
+        }
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: var(--text-light);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+            letter-spacing: 2px;
+        }
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            text-shadow: 0 0 10px rgba(0, 188, 212, 0.4);
+            margin-top: 15px;
+        }
+        .hero-intro {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 20px auto 0;
+            color: var(--text-light);
+        }
+
+        /* --- Card Styling --- */
+        .card {
+            background-color: var(--secondary-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(169, 103, 246, 0.3);
+        }
+        .card-title {
+            color: var(--accent-purple);
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+        .card-text {
+            color: var(--text-light);
+        }
+
+        /* --- Badges/Skills --- */
+        .skill-badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 18px;
+            margin: 5px;
+            border-radius: 25px;
+            background: linear-gradient(45deg, var(--accent-blue), #00a8c0);
+            color: var(--primary-dark);
+            font-weight: 600;
+            font-size: 0.95em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .skill-badge:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(45deg, var(--accent-purple), #8a4edb);
+            color: var(--text-light);
+        }
+        .skill-badge .iconify {
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+
+        /* --- Buttons --- */
+        .btn-primary-accent {
+            background: linear-gradient(45deg, var(--accent-purple), #8a4edb);
+            border: none;
+            color: var(--text-light);
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .btn-primary-accent:hover {
+            background: linear-gradient(45deg, #8a4edb, var(--accent-purple));
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            color: var(--text-light);
+        }
+        .btn-secondary-outline {
+            background: transparent;
+            border: 2px solid var(--accent-blue);
+            color: var(--accent-blue);
+            padding: 10px 28px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .btn-secondary-outline:hover {
+            background-color: var(--accent-blue);
+            color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 188, 212, 0.3);
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: var(--secondary-dark);
+            padding: 30px 0;
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
+        }
+        footer p {
+            color: #888;
+            margin-bottom: 0;
+        }
+
+        /* --- Responsive Adjustments --- */
+        @media (max-width: 768px) {
+            .section-heading {
+                font-size: 2.2rem;
+                margin-bottom: 40px;
+            }
+            .hero-title {
+                font-size: 3rem;
+            }
+            .hero-subtitle {
+                font-size: 1.4rem;
+            }
+            .hero-intro {
+                font-size: 1rem;
+            }
+            .skill-badge {
+                padding: 6px 12px;
+                font-size: 0.85em;
+            }
+            .btn-primary-accent, .btn-secondary-outline {
+                padding: 10px 20px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Adam Moncy David</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid p-0">
+        <header id="hero" class="text-center">
+            <h1 class="hero-title" data-aos="fade-down" data-aos-duration="1000">Adam Moncy David</h1>
+            <h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">B.Tech Student | Computer Science & Engineering</h2>
+            <p class="lead hero-intro" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1200">
+                I'm an ambitious engineering student passionate about solving problems creatively, leveraging technologies like Python, JavaScript, and MySQL to build impactful applications.
+            </p>
+        </header>
+    </div>
+
+    <div style="background-color: var(--primary-dark); margin-top: -1px;">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+            <path fill="var(--gradient-start)" fill-opacity="1" d="M0,192L48,170.7C96,149,192,107,288,112C384,117,480,171,576,192C672,213,768,203,864,181.3C960,160,1056,128,1152,122.7C1248,117,1344,139,1392,149.3L1440,160L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+        </svg>
+    </div>
+
+    <div class="container py-5">
+        <section id="about" class="py-5 text-center">
+            <h3 class="section-heading mx-auto" data-aos="fade-down">About Me & Education</h3>
+            <div class="row g-5">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+                    <div class="card p-5 h-100">
+                        <h4 class="card-title text-start mb-4">My Story</h4>
+                        <p class="card-text text-start">
+                            Hello, I'm Adam Moncy David, an ambitious engineering student currently pursuing a **B.Tech in Computer Science and Engineering**. I'm always **passionate about solving problems in my own way**, finding creative and efficient technical solutions. My focus is on leveraging technologies like **Python, JavaScript, and MySQL** to build impactful applications. Let's connect and build something great!
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="400">
+                    <div class="card p-5 h-100">
+                        <h4 class="card-title text-start mb-4">Academic Journey</h4>
+                        <ul class="list-unstyled text-start">
+                            <li class="mb-3">
+                                <h5 class="fw-bold" style="color: var(--accent-blue);">B.Tech in Computer Science & Engineering</h5>
+                                <p class="mb-0">University/College Name (Currently Pursuing)</p>
+                                <small class="text-muted">Expected Graduation: [Year]</small>
+                            </li>
+                            <li>
+                                <h5 class="fw-bold" style="color: var(--accent-blue);">Higher Secondary Education (Plus Two)</h5>
+                                <p class="mb-0">Achieved 80% marks</p>
+                                <small class="text-muted">Completion Year: [Year]</small>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="py-5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="var(--secondary-dark)" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,112C384,128,480,192,576,192C672,192,768,128,864,117.3C960,107,1056,149,1152,170.7C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+
+        <section id="skills" class="py-5 text-center" style="background-color: var(--secondary-dark); border-radius: 20px; padding-top: 80px !important; padding-bottom: 80px !important;">
+            <h3 class="section-heading mx-auto" data-aos="fade-down">My Skillset</h3>
+            <div class="row justify-content-center g-3">
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="100"><span class="skill-badge"><span class="iconify" data-icon="logos:python" data-width="20"></span> Python</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="150"><span class="skill-badge"><span class="iconify" data-icon="logos:javascript" data-width="20"></span> JavaScript</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="200"><span class="skill-badge"><span class="iconify" data-icon="logos:mysql" data-width="20"></span> MySQL</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="250"><span class="skill-badge"><span class="iconify" data-icon="vscode-icons:file-type-html" data-width="20"></span> HTML5</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="300"><span class="skill-badge"><span class="iconify" data-icon="vscode-icons:file-type-css" data-width="20"></span> CSS3</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="350"><span class="skill-badge"><span class="iconify" data-icon="logos:git-icon" data-width="20"></span> Git</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="400"><span class="skill-badge"><span class="iconify" data-icon="logos:github-icon" data-width="20"></span> GitHub</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="450"><span class="skill-badge"><span class="iconify" data-icon="vscode-icons:file-type-vscode" data-width="20"></span> VS Code</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="500"><span class="skill-badge"><span class="iconify" data-icon="carbon:ibm-cloud-pak-mcm" data-width="20"></span> Backend Dev</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="550"><span class="skill-badge"><span class="iconify" data-icon="material-symbols:design-services-outline" data-width="20"></span> Frontend Design</span></div>
+                <div class="col-auto" data-aos="zoom-in" data-aos-delay="600"><span class="skill-badge"><span class="iconify" data-icon="ic:baseline-people" data-width="20"></span> Teamwork</span></div>
+            </div>
+        </section>
+
+        <div class="py-5">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="var(--primary-dark)" fill-opacity="1" d="M0,160L48,144C96,128,192,96,288,112C384,128,480,192,576,192C672,192,768,128,864,117.3C960,107,1056,149,1152,170.7C1248,192,1344,192,1392,192L1440,192L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+            </svg>
+        </div>
+        
+        <section id="projects" class="py-5 text-center">
+            <h3 class="section-heading mx-auto" data-aos="fade-down">Featured Projects</h3>
+            <div class="row g-5 justify-content-center">
+                
+                <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
+                    <div class="card p-5 h-100">
+                        <h4 class="card-title mb-3">Air Quality Monitoring System</h4>
+                        <p class="card-text mb-4">A comprehensive system designed to **monitor and manage air quality** within the campus environment. Developed using Python for backend logic and MySQL for robust data management, ensuring real-time insights.</p>
+                        <p class="text-muted small mb-4">**Role:** Project Leader, Full-Stack Developer (Frontend & Backend)</p>
+                        <div class="mt-auto d-flex justify-content-center gap-3">
+                            <a href="https://adammoncydavid.github.io/air-quality-monitoring/" target="_blank" class="btn btn-primary-accent">Live Demo</a>
+                            <a href="https://github.com/adammoncydavid/air-quality-monitoring" target="_blank" class="btn btn-secondary-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6" data-aos="fade-left" data-aos-delay="400">
+                    <div class="card p-5 h-100">
+                        <h4 class="card-title mb-3">Time Table Management System</h4>
+                        <p class="card-text mb-4">An intuitive system developed to **efficiently manage and organize academic timetables** for the campus. Built with a robust stack including Python, HTML, CSS, JavaScript, and MySQL for seamless operation.</p>
+                        <p class="text-muted small mb-4">**Role:** Project Leader, Full-Stack Developer (Frontend & Backend)</p>
+                        <div class="mt-auto d-flex justify-content-center gap-3">
+                            <a href="https://github.com/adammoncydavid/Time-Table-Management-System" target="_blank" class="btn btn-secondary-outline">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="py-5 text-center">
+            <h3 class="section-heading mx-auto" data-aos="fade-down">Let's Connect!</h3>
+            <div class="card p-5 mx-auto" style="max-width: 700px;" data-aos="zoom-in-up" data-aos-delay="200">
+                <p class="lead mb-4">I'm always open to new opportunities, collaborations, and conversations. Feel free to reach out!</p>
+                <p class="mb-3">
+                    <span class="iconify me-2" data-icon="eva:email-outline" data-width="25" data-height="25" style="color: var(--accent-purple);"></span>
+                    <strong>Email:</strong> <a href="mailto:adammoncydavid@gmail.com" class="text-decoration-none" style="color: var(--accent-blue); transition: color 0.3s ease;">adammoncydavid@gmail.com</a>
+                </p>
+                <p class="mb-5">
+                    <span class="iconify me-2" data-icon="akar-icons:phone" data-width="25" data-height="25" style="color: var(--accent-purple);"></span>
+                    <strong>Phone:</strong> +91 85905 96165
+                </p>
+
+                <div class="d-flex justify-content-center gap-4">
+                    <a href="https://in.linkedin.com/in/adam-moncy-david-054200246" target="_blank" class="btn btn-primary-accent" data-aos="zoom-in" data-aos-delay="300">
+                        <span class="iconify me-2" data-icon="akar-icons:linkedin-fill" data-width="20"></span> LinkedIn
+                    </a>
+                    <a href="https://github.com/adammoncydavid" target="_blank" class="btn btn-secondary-outline" data-aos="zoom-in" data-aos-delay="400">
+                        <span class="iconify me-2" data-icon="akar-icons:github-fill" data-width="20"></span> GitHub
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="text-center py-4">
+            <p>&copy; <span id="current-year"></span> Adam Moncy David. All rights reserved.</p>
+            <p class="small text-muted">Crafted with passion and code.</p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+            mirror: false // Prevents animation from reversing on scroll up
+        });
+
+        // Set current year in footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
