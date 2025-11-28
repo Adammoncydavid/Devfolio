@@ -14,24 +14,21 @@
     <script src="https://code.iconify.design/2/2.1.0/iconify.min.js"></script>
 
     <style>
-        /* --- HIGH-CONTRAST PREMIUM STYLING --- */
+        /* --- HIGH-CONTRAST LIGHT MODE STYLING --- */
         :root {
-            --primary-dark: #0a0a0d; /* Soft dark base for background gradient */
-            --secondary-dark: #161616; /* Card/Section Background */
-            --text-light: #e0e0e0;
-            --text-muted: #888888;
+            --primary-light: #f8f8f8; /* Off-White Background */
+            --secondary-light: #ffffff; /* Card/Section Background (Pure White) */
+            --text-dark: #333333; /* Main Text Color */
+            --text-muted: #6c757d;
             --accent-yellow: #FFB900; /* High-Contrast Accent */
-            --border-color: #222222;
+            --border-color: #e9ecef; /* Light Border */
+            --shadow-color: rgba(0, 0, 0, 0.1);
         }
 
         body {
-            /* NEW: Dark Radial Gradient + Noise Overlay for depth and vibrancy */
-            background: radial-gradient(circle at center, #101018 0%, #0c0c10 100%);
-            background-color: var(--primary-dark);
-            /* Subtle texture/grain pattern, similar to referenced sites */
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' opacity='.05'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.5' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23a)'/%3E%3C/svg%3E");
-            
-            color: var(--text-light);
+            /* Changed to light mode colors */
+            background-color: var(--primary-light);
+            color: var(--text-dark);
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             overflow-x: hidden;
@@ -39,7 +36,7 @@
         }
 
         h1, h2, h3, h4, h5, h6 {
-            color: var(--text-light);
+            color: var(--text-dark);
             font-weight: 700;
         }
 
@@ -47,7 +44,7 @@
         .section-heading {
             font-size: 2.8rem;
             font-weight: 800;
-            color: var(--text-light);
+            color: var(--text-dark);
             margin-bottom: 60px;
             position: relative;
             padding-bottom: 15px;
@@ -70,145 +67,108 @@
 
         /* --- Navbar --- */
         .navbar {
-            background-color: var(--secondary-dark) !important;
+            background-color: var(--secondary-light) !important;
             border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 10px var(--shadow-color);
         }
         .nav-link {
-            color: var(--text-light) !important;
+            color: var(--text-dark) !important;
             font-weight: 600;
             transition: color 0.3s ease;
         }
         .nav-link:hover {
             color: var(--accent-yellow) !important;
         }
+        .navbar-brand {
+            color: var(--text-dark) !important;
+        }
 
         /* --- Hero Section --- */
         #hero {
-            background: linear-gradient(135deg, #1c0f3c 0%, #0f1e3c 100%); 
+            /* Reverting Hero to a contrasting dark color, as plain white-on-white looks flat */
+            background-color: #121212; 
+            color: #ffffff;
             padding: 150px 0 100px;
         }
         .hero-title {
-            font-size: 4.5rem;
-            font-weight: 800;
-            letter-spacing: -2px;
+            color: #ffffff;
         }
         .hero-subtitle {
-            font-size: 1.6rem;
-            font-weight: 600;
-            color: var(--text-muted);
+            color: var(--accent-yellow);
         }
 
-        /* --- Card Styling --- */
+        /* --- Card Styling (Main Content Sections) --- */
         .card {
-            background-color: var(--secondary-dark);
+            background-color: var(--secondary-light);
             border: 1px solid var(--border-color);
             border-radius: 10px;
             transition: transform 0.3s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px var(--shadow-color);
         }
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 10px rgba(255, 185, 0, 0.2);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15), 0 0 10px rgba(255, 185, 0, 0.2);
+        }
+        .card-text {
+             color: var(--text-dark); /* Ensure text stays dark on white background */
+        }
+        .card-title {
+            color: var(--accent-yellow);
         }
 
         /* --- Experience/Detail Blocks --- */
         .detail-item {
-            background-color: var(--secondary-dark);
+            background-color: var(--secondary-light);
             border-left: 3px solid var(--accent-yellow);
             padding: 20px;
             border-radius: 6px;
             margin-bottom: 20px;
+            box-shadow: 0 2px 5px var(--shadow-color);
         }
         .detail-item h5 {
             color: var(--accent-yellow);
-            font-weight: 700;
-            margin-bottom: 5px;
         }
         .detail-meta {
-            font-size: 0.9rem;
             color: var(--text-muted);
-            margin-bottom: 10px;
         }
         .detail-list li {
-            color: var(--text-light);
-            list-style: none;
-            padding-left: 1.5em;
-            text-indent: -1.5em;
+            color: var(--text-dark);
         }
         .detail-list li:before {
-            content: "→"; 
             color: var(--accent-yellow); 
-            margin-right: 0.5em;
         }
         
         /* --- Buttons --- */
         .btn-accent {
             background-color: var(--accent-yellow);
             border: none;
-            color: var(--primary-dark);
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        .btn-accent:hover {
-            background-color: #ffc83d;
-            transform: translateY(-2px);
+            color: var(--text-dark); /* Changed text color to dark for contrast */
         }
         .btn-outline-dark {
             border: 1px solid var(--text-muted);
-            color: var(--text-light);
+            color: var(--text-dark); /* Changed text color to dark for contrast */
         }
         .btn-outline-dark:hover {
             background-color: var(--text-muted);
-            color: var(--primary-dark);
+            color: var(--primary-light); /* Changed hover text to white */
         }
 
-        /* --- Skill Badges (Similar to before, but color adjusted) --- */
+        /* --- Skill Badges --- */
         .skill-badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 8px 18px;
-            margin: 5px;
-            border-radius: 25px;
-            background-color: #1f1f1f;
-            color: var(--text-light);
-            font-weight: 600;
-            font-size: 0.9em;
+            background-color: var(--secondary-light);
+            color: var(--text-dark);
             border: 1px solid var(--border-color);
-            transition: background-color 0.3s ease;
         }
         .skill-badge:hover {
-            background-color: #2b2b2b;
-        }
-        .skill-badge .iconify {
-            margin-right: 8px;
-            font-size: 1.2em;
-            color: var(--accent-yellow); /* Yellow icon highlight */
+            background-color: #ededed;
         }
 
         /* --- Footer --- */
         footer {
-            background-color: var(--secondary-dark);
+            background-color: var(--secondary-light);
             padding: 30px 0;
             border-top: 1px solid var(--border-color);
-            margin-top: 50px;
-        }
-        footer p {
-            color: var(--text-muted);
-            margin-bottom: 0;
-        }
-
-        /* --- Responsive Adjustments --- */
-        @media (max-width: 768px) {
-            .section-heading {
-                font-size: 2.2rem;
-                margin-bottom: 40px;
-            }
-            .hero-title {
-                font-size: 3.5rem;
-            }
-            .hero-subtitle {
-                font-size: 1.2rem;
-            }
+            box-shadow: 0 -2px 10px var(--shadow-color);
         }
     </style>
 </head>
@@ -236,7 +196,7 @@
         <header id="hero" class="text-center">
             <h1 class="hero-title" data-aos="fade-down" data-aos-duration="1000">Adam Moncy David</h1>
             <h2 class="hero-subtitle" data-aos="fade-up" data-aos-delay="300">B.Tech Student | <span class="text-accent">Computer Science & Engineering</span></h2>
-            <p class="lead hero-intro" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1200">
+            <p class="lead hero-intro" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1200" style="color: #cccccc;">
                 I'm an ambitious engineering student passionate about solving problems creatively, leveraging core technologies like Python and JavaScript to build impactful applications.
             </p>
         </header>
@@ -248,7 +208,7 @@
                     <div class="card p-5 h-100">
                         <h4 class="card-title text-start mb-4">My Story</h4>
                         <p class="card-text text-start">
-                            Hello, I'm Adam Moncy David, an ambitious engineering student currently pursuing a <strong>B.Tech in Computer Science and Engineering</strong>. I'm always <strong>passionate about solving problems in my own way</strong>, finding creative and efficient technical solutions. My focus is on leveraging technologies like <strong>Python, JavaScript, and MySQL</strong> to build impactful applications. My primary goal is to transition academic knowledge into professional software development.
+                            Hello, I'm Adam Moncy David, an ambitious engineering student focused on full-stack development and robust problem-solving. My passion lies in taking ideas from concept to deployment, using a combination of logical programming and responsive front-end design. My primary stack includes Python, JavaScript, and MySQL.
                         </p>
                     </div>
                 </div>
@@ -272,24 +232,7 @@
                 </div>
             </div>
         </section>
-
-        <section id="skills" class="py-5 text-center">
-            <h3 class="section-heading mx-auto" data-aos="fade-down">Core Skills</h3>
-            <div class="row justify-content-center g-3">
-                <div class="col-auto" data-aos="zoom-in" data-aos-delay="100"><span class="skill-badge"><span class="iconify" data-icon="logos:python" data-width="20"></span> Python</span></div>
-                <div class="col-auto" data-aos="zoom-in" data-aos-delay="150"><span class="skill-badge"><span class="iconify" data-icon="logos:javascript" data-width="20"></span> JavaScript</span></div>
-                <div class="col-auto" data-aos="zoom-in" data-aos-delay="200"><span class="skill-badge"><span class="iconify" data-icon="logos:mysql" data-width="20"></span> MySQL</span></div>
-                <div class="col-auto" data-aos="zoom-in" data-aos-delay="250"><span class="skill-badge"><span class="iconify" data-icon="vscode-icons:file-type-html" data-width="20"></span> HTML5</span></div>
-                <div class="col-auto" data-aos="zoom-in" data-aos-delay="300"><span class="skill-badge"><span class="iconify" data-icon="vscode-icons:file-type-css" data-width="20"></span> CSS3</span></div>
-                <div class="col-auto" data-aos="zoom-in" data-aos-delay="350"><span class="skill-badge"><span class="iconify" data-icon="logos:git-icon" data-width="20"></span> Git</span></div>
-                <div class="col-auto" data-aos="zoom-in" data-aos-delay="400"><span class="skill-badge"><span class="iconify" data-icon="logos:github-icon" data-width="20"></span> GitHub</span></div>
-                <div class="col-auto" data-aos="zoom-in" data-aos-delay="450"><span class="skill-badge"><span class="iconify" data-icon="vscode-icons:file-type-vscode" data-width="20"></span> VS Code</span></div>
-                <div class="col-auto" data-aos="zoom-in" data-aos-delay="500"><span class="skill-badge"><span class="iconify" data-icon="carbon:ibm-cloud-pak-mcm" data-width="20"></span> Backend Dev</span></div>
-                <div class="col-auto" data-aos="zoom-in" data-aos-delay="550"><span class="skill-badge"><span class="iconify" data-icon="material-symbols:design-services-outline" data-width="20"></span> Frontend Design</span></div>
-            </div>
-        </section>
-
-
+        
         <section id="experience" class="py-5 text-center">
             <h3 class="section-heading mx-auto" data-aos="fade-down">Internships & Workshops</h3>
             <div class="row g-4">
